@@ -1,17 +1,24 @@
+//jshint esversion:6
+
 import React from "react";
 import ReactDom from "react-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
+import notes from "../notes";
 
 function App () {
     return (
         <div>
-            <Header /> 
-            <Note />
+            <Header />
+            {notes.map(notes => (<Note
+              key={notes.id}
+              title={notes.title}
+              content={notes.content}
+            />))}
             <Footer />
         </div>
-    );    
+    );
 }
 
 export default App;
